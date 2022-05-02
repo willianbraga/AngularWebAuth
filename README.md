@@ -1,0 +1,1 @@
+ng serve --open --disable-host-check
