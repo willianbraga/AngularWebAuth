@@ -1,7 +1,8 @@
-<div fxLayoutAlign="space-between center" style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
-  <h1>
+<div fxLayoutAlign="space-between center"
+  style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
+  <h3>
     🔐 Web Authentication Angular
-  </h1>
+  </h3>
   <a mat-button class="github" href="https://github.com/willianbraga/AngularWebAuth" target="_blank">
     <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
     GitHub
@@ -10,14 +11,16 @@
 <mat-card class="not-available" *ngIf="!webAuthnAvailable">
   🚫 Oops! Desculpe, Web Authentication API não disponivel em seu navegador. Tente novamente no Chrome.
 </mat-card>
-<div class="forms" fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="10px">
-  <mat-card fxFlex="noshrink">
+<div class="forms" fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="10px"
+  style="flex-flow: row wrap; box-sizing: border-box; display: flex; place-content: flex-start space-between; align-items: flex-start;">
+  <mat-card class="mat-card" fxFlex="noshrink" style="margin-right: 10px; flex: 1 0 auto; box-sizing: border-box;">
     <legend>Sign Up</legend>
-    <div class="signup" fxLayout="column" fxLayoutAlign="center center">
-      <mat-form-field>
-        <input matInput placeholder="Email" [(ngModel)]="email">
+    <div class="signup" fxLayout="column" fxLayoutAlign="center center"
+      style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+      <mat-form-field class="mat-form-field ng-tns-c3-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid mat-form-field-should-float">
+        <input matInput placeholder="Email" [(ngModel)]="email" class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="mat-form-field ng-tns-c3-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid mat-form-field-should-float">
         <input type="password" matInput placeholder="Password" [(ngModel)]="password">
       </mat-form-field>
       <div class="fingerprint" *ngIf="webAuthnAvailable">
@@ -30,13 +33,13 @@
       <button mat-raised-button color="primary" (click)="signup()">SIGN UP</button>
     </div>
   </mat-card>
-  <mat-card fxFlex="noshrink">
+  <mat-card class="mat-card" fxFlex="noshrink" style="flex: 1 0 auto; box-sizing: border-box;">
     <legend>Sign In</legend>
-    <div class="signin" fxLayout="column" fxLayoutAlign="center center">
-      <mat-form-field>
+    <div class="signin" fxLayout="column" fxLayoutAlign="center center" style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+      <mat-form-field class="mat-form-field ng-tns-c3-2 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid mat-form-field-should-float">
         <input matInput placeholder="Email" [(ngModel)]="email">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="mat-form-field ng-tns-c3-3 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid mat-form-field-should-float">
         <input type="password" matInput placeholder="Password" [(ngModel)]="password">
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="signin()">SIGN IN</button>
@@ -50,7 +53,7 @@
   </mat-card>
 </div>
 
-<h1>Admin</h1>
+<h3 style="text-align: center;">Área Admin - Usuários e senhas.</h3>
 <mat-card class="user" *ngFor="let user of users" fxLayoutAlign="space-between center">
   <div class="email">{{ user.email }} - {{user.password}}</div>
   <button mat-button *ngIf="user.credentials.length" (click)="webAuthSignin()" color="primary">
