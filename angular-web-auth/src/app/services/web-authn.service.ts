@@ -56,6 +56,9 @@ export class WebAuthnService {
 
     return navigator.credentials.get({
       publicKey: credentialRequestOptions,
+      otp: {
+        transport: []
+      }
     });
   }
 }

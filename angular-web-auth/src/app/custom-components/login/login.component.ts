@@ -1,5 +1,5 @@
 import { User } from '../../interfaces/user';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServerMockService } from 'src/app/services/server-mock.service';
 import { WebAuthnService } from 'src/app/services/web-authn.service';
 

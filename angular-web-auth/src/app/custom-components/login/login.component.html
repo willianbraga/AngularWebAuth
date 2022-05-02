@@ -1,5 +1,4 @@
-<div fxLayoutAlign="space-between center"
-  style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
+<div fxLayoutAlign="space-between center" style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
   <h3>
     🔐 Web Authentication Angular
   </h3>
@@ -16,7 +15,7 @@
   <mat-card class="mat-card" fxFlex="noshrink" style="margin-right: 10px; flex: 1 0 auto; box-sizing: border-box;">
     <legend>Sign Up</legend>
     <div class="signup" fxLayout="column" fxLayoutAlign="center center"
-      style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+      style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center;">
       <mat-form-field class="mat-form-field ng-tns-c3-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid mat-form-field-should-float">
         <input matInput placeholder="Email" [(ngModel)]="email" class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-valid">
       </mat-form-field>
@@ -35,7 +34,7 @@
   </mat-card>
   <mat-card class="mat-card" fxFlex="noshrink" style="flex: 1 0 auto; box-sizing: border-box;">
     <legend>Sign In</legend>
-    <div class="signin" fxLayout="column" fxLayoutAlign="center center" style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+    <div class="signin" fxLayout="column" fxLayoutAlign="center center" style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center;">
       <mat-form-field class="mat-form-field ng-tns-c3-2 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-valid mat-form-field-should-float">
         <input matInput placeholder="Email" [(ngModel)]="email">
       </mat-form-field>
@@ -44,8 +43,8 @@
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="signin()">SIGN IN</button>
       <div class="fingerprint-auth" *ngIf="webAuthnAvailable">
-        <div class="or" fxLayoutAlign="center start">OR</div>
-        <button mat-raised-button color="primary" (click)="webAuthSignin()">
+        <div class="or" fxLayoutAlign="center start">Ou</div>
+        <button mat-raised-button color="primary" (click)="webAuthSignin()" class="mat-raised-button mat-button-base mat-primary">
           <mat-icon>fingerprint</mat-icon>
         </button>
       </div>
@@ -54,7 +53,7 @@
 </div>
 
 <h3 style="text-align: center;">Área Admin - Usuários e senhas.</h3>
-<mat-card class="user" *ngFor="let user of users" fxLayoutAlign="space-between center">
+<mat-card class="user" *ngFor="let user of users" fxLayoutAlign="space-between center" style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
   <div class="email">{{ user.email }} - {{user.password}}</div>
   <button mat-button *ngIf="user.credentials.length" (click)="webAuthSignin()" color="primary">
     <mat-icon>fingerprint</mat-icon>
