@@ -15,22 +15,18 @@ export class WebAuthnService {
 
     const publicKeyCredentialCreationOptions: PublicKeyCredentialCreationOptions = {
       
-      // Challenge shoulda come from the server
       challenge: this.serverMockService.getChallenge(),
       rp: {
         name: 'WebAuthn Test',
-        // id: 'localhost:4200',
       },
       user: {
-        // Some user id coming from the server
         id: Uint8Array.from(user.id, c => c.charCodeAt(0)),
         name: user.email,
         displayName: user.email,
       },
       pubKeyCredParams: [{ alg: -7, type: 'public-key' }],
       authenticatorSelection: {
-        authenticatorAttachment: 'platform',
-        // requireResidentKey: true,
+        authenticatorAttachment: 'platform'
       },
       timeout: 60000,
       attestation: 'direct'
@@ -55,10 +51,7 @@ export class WebAuthnService {
     };
 
     return navigator.credentials.get({
-      publicKey: credentialRequestOptions,
-      otp: {
-        transport: []
-      }
+      publicKey: credentialRequestOptions
     });
   }
 }

@@ -24,7 +24,6 @@ export class LoginComponent {
 
     console.log('SIGNUP');
 
-    // Save into the 'DB'
     const prevUser = this.serverMockService.getUser(this.email);
     if (prevUser) {
       alert('🚫 User already exists with this email address');
@@ -33,7 +32,6 @@ export class LoginComponent {
     const user: User = this.serverMockService.addUser({ email: this.email, password: this.password, credentials: [] });
     this.users = this.serverMockService.getUsers();
 
-    // Ask for WebAuthn Auth method
     if (this.webAuthnAvailable && this.useFingerprint) {
 
       this.webAuthnService.webAuthnSignup(user)
@@ -68,7 +66,6 @@ export class LoginComponent {
     const user = this.serverMockService.getUser(this.email);
     this.webAuthnService.webAuthnSignin(user).then((response) => {
 
-      // TODO: validate attestion
       alert('✅ Congrats! Authentication went fine!');
       console.log('SUCCESSFULLY GOT AN ASSERTION!', response);
     }).catch((error) => {

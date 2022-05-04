@@ -12,7 +12,6 @@ export class ServerMockService {
 
   constructor(private userService: UserService) { }
 
-  // Validate and Store credential
   registerCredential(user: User, credential: PublicKeyCredential): boolean {
 
     const authData = this.extractAuthData(credential);
