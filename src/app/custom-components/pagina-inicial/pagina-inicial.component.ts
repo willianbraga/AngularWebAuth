@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagina-inicial',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaInicialComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    localStorage.removeItem('user.logged');
+    this.route.navigate(['login']);
+  }
 }
