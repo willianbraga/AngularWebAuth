@@ -1,5 +1,3 @@
-
-
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthorizedSecurity } from './secutiry/authorized-security';
+import { DialogModule } from './custom-components/shared/dialog/dialog.module';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,15 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    DialogModule,
+    HttpClientModule,
+
   ],
-  providers: [],
+  providers: [
+    AuthorizedSecurity
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
