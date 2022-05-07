@@ -17,7 +17,7 @@ export class WebAuthnService {
       
       challenge: this.serverMockService.getChallenge(),
       rp: {
-        name: 'WebAuthn Test',
+        name: 'Willian Braga WebAuthn'
       },
       user: {
         id: Uint8Array.from(user.id, c => c.charCodeAt(0)),
@@ -43,6 +43,7 @@ export class WebAuthnService {
       return { type: 'public-key', id: Uint8Array.from(Object.values(c.credentialId)) };
     });
 
+    alert(JSON.stringify(user));
     console.log('allowCredentials', allowCredentials);
 
     const credentialRequestOptions: PublicKeyCredentialRequestOptions = {

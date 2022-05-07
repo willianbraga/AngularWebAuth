@@ -82,7 +82,8 @@ export class ServerMockService {
   }
 
   getChallenge() {
-    return Uint8Array.from('someChallengeIsHereComOn', c => c.charCodeAt(0));
+    let someRandomCodeFromTheServer = Math.floor(Math.random() * 10000000).toString();
+    return Uint8Array.from(someRandomCodeFromTheServer, c => c.charCodeAt(0));
   }
 
   getUsers() {
