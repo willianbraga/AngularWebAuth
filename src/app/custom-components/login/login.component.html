@@ -1,4 +1,5 @@
-<div fxLayoutAlign="space-between center" style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
+<div fxLayoutAlign="space-between center"
+  style="place-content: center space-between; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
   <h3>
     🔐 Web Authentication
   </h3>
@@ -53,6 +54,9 @@
       <div class="email">{{ user.email }} - {{user.password}}</div>
       <button mat-button *ngIf="user.credentials.length" (click)="webAuthSignin()" color="primary">
         <mat-icon>fingerprint</mat-icon>
+      </button>
+      <button mat-button (click)="updateUser(user.email)" color="warn">
+        <mat-icon inline>create</mat-icon>
       </button>
       <button mat-button (click)="removeUser(user.email)" color="warn">
         <mat-icon inline>delete</mat-icon>

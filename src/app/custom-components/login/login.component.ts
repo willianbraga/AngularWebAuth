@@ -100,16 +100,10 @@ export class LoginComponent {
                 });
 
             return;
+        } else {
+
+            this.webAuthSignin();
         }
-
-        // const user = this.serverMockService.getUsers().find(u => u.email === this.email && u.password === this.password);
-        // if (user) {
-        //   alert('✅ Congrats! Authentication went fine!');
-        // } else {
-        //   alert('🚫 Sorry :( Invalid credentials!');
-        // }
-
-        this.webAuthSignin();
     }
 
     webAuthSignin() {
@@ -178,5 +172,15 @@ export class LoginComponent {
                 this.users = this.serverMockService.getUsers();
             }
         });
+    }
+
+    updateUser(email: string) {
+
+        let user = this.serverMockService.getUser(email);
+        user.password = '111';
+
+        this.serverMockService.updateUser(user);
+        this.users = this.serverMockService.getUsers();
+
     }
 }
