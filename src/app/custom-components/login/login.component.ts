@@ -100,20 +100,24 @@ export class LoginComponent {
                 });
 
             return;
-        } else {
 
+        } else {
             this.webAuthSignin();
         }
     }
 
     webAuthSignin() {
-
         const user = this.serverMockService.getUser(this.email);
 
         this.webAuthnService.webAuthnSignin(user).then((response) => {
 
-            alert('✅ Congrats! Authentication went fine!');
-            console.log('SUCCESSFULLY GOT AN ASSERTION!', response);
+            alert('✅ Autenticação por dispositivo efetuada com sucesso!');
+            console.log('Autenticação efetuada com sucesso!', response);
+
+            user.token = '' + Math.floor(Math.random() * 100000000);
+            localStorage.setItem('user.logged', JSON.stringify(user));
+            this.route.navigate(['home']);
+
         }).catch((error) => {
 
             console.log('Autenticacao por dispositivo falhou: ', error);

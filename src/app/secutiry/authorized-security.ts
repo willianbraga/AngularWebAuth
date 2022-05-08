@@ -7,11 +7,9 @@ export class AuthorizedSecurity implements CanActivate {
 
     constructor(
         private router: Router
-    ) {
-        
-    }
+    ) { }
     canActivate() {
-        const user =SecurityUtil.get();
+        const user = SecurityUtil.get();
         if (!user || !user.token) {
             this.router.navigate(['login']);
             return false;

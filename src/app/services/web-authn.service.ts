@@ -14,7 +14,7 @@ export class WebAuthnService {
     console.log('[webAuthnSignup]');
 
     const publicKeyCredentialCreationOptions: PublicKeyCredentialCreationOptions = {
-      
+
       challenge: this.serverMockService.getChallenge(),
       rp: {
         name: 'Willian Braga WebAuthn'
