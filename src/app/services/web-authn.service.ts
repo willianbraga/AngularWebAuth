@@ -43,7 +43,6 @@ export class WebAuthnService {
       return { type: 'public-key', id: Uint8Array.from(Object.values(c.credentialId)) };
     });
 
-    alert(JSON.stringify(user));
     console.log('allowCredentials', allowCredentials);
 
     const credentialRequestOptions: PublicKeyCredentialRequestOptions = {
